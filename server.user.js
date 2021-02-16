@@ -17,10 +17,13 @@ import mongoose from "mongoose";
 import {
   rootTypeDef,
   userTypeDef,
-  favouritesTypeDef,
-  productTypeDefs,
-} from "./shop/graphql/typeDef";
-import { user, favourites, product } from "./shop/graphql/resolvers";
+  // bookmarkTypeDef,
+  // newsTypeDefs,
+} from "./user/graphql/typeDef";
+import {
+  user,
+  // bookmark, news
+} from "./user/graphql/resolvers";
 
 // import {
 //   userResolvers,
@@ -31,14 +34,14 @@ import { user, favourites, product } from "./shop/graphql/resolvers";
 //   favouritesTypeDefs,
 // } from "./shop/graphql";
 
-import auth from "./shop/middleware/auth";
+import auth from "./user/middleware/auth";
 
 const startServer = async () => {
   const app = express();
   app.use(auth);
   const server = new ApolloServer({
-    resolvers: merge({}, user, favourites, product),
-    typeDefs: [rootTypeDef, userTypeDef, favouritesTypeDef, productTypeDefs],
+    resolvers: merge({}, user),
+    typeDefs: [rootTypeDef, userTypeDef],
     introspection: true,
     playground: true,
     tracing: true,
@@ -47,7 +50,7 @@ const startServer = async () => {
   server.applyMiddleware({ app });
 
   mongoose
-    .connect("mongodb://localhost:27017/shop", {
+    .connect("mongodb://localhost:27017/quickenews", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

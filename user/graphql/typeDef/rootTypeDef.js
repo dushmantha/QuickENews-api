@@ -20,33 +20,15 @@ const rootTypeDef = gql`
   }
 
   type Response {
-    message: String
+    succeed: String
   }
 
-  input Product {
-    _id: ID!
-    title: String!
-    slug: String
-    unit: String!
-    price: Int!
-    discountInPercent: Int
-    description: String
-    dealType: String!
-    image: String!
-    rating: String
-    gallery: [Gallery]
-    categories: [Category]!
+  type News {
+    _empty: String
   }
 
-  input Gallery {
-    _id: ID!
-    url: String!
-  }
-
-  input Category {
-    _id: ID!
-    title: String!
-    slug: String
+  type Category {
+    _empty: String
   }
 `;
 

@@ -10,17 +10,26 @@
  */
 
 import mongoose from "mongoose";
-import { productSchema } from "./product";
 
 const Schema = mongoose.Schema;
 
-const favouritesSchema = new Schema({
-  userId: {
+const categorySchema = new Schema({
+  title: {
     type: String,
     required: true,
   },
-
-  products: [productSchema],
+  slug: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  icon: {
+    type: String,
+    required: true,
+  },
 });
 
-export const Favourites = mongoose.model("favourites", favouritesSchema);
+export const Category = mongoose.model("category", categorySchema);

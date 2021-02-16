@@ -10,7 +10,10 @@
  */
 
 import user from "./user";
-import favourites from "./favourites";
-import product from "./product";
+// import bookmark from "./bookmark";
+// import news from "./news";
 
-export { user, favourites, product };
+export {
+  user,
+  // bookmark, news
+};

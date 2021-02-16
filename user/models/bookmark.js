@@ -9,8 +9,17 @@
  *
  */
 
-import { gql } from "apollo-server-express";
+import mongoose from "mongoose";
+import { newsSchema } from "./news";
 
-const cartTypeDef = gql``;
+const Schema = mongoose.Schema;
 
-export default cartTypeDef;
+const bookmarkSchema = new Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
+  news: newsSchema,
+});
+
+export const Bookmark = mongoose.model("bookmark", bookmarkSchema);

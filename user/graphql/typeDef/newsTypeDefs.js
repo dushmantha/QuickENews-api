@@ -11,35 +11,36 @@
 
 import { gql } from "apollo-server-express";
 
-const favouritesTypeDef = gql`
+const newsTypeDefs = gql`
   extend type Query {
-    favourites(userId: ID!): [Response]
-  }
-
-  extend type Mutation {
-    AddFavoritesInput(userId: ID!, products: [Product]): String
+    newsList: Response
+    news(newsId: ID): News
   }
 
   extend type Response {
-    favourites: [Favourite]
+    all: [News]
   }
 
-  type Favourite {
+  extend type News {
     _id: ID!
     title: String!
     slug: String
-    unit: String!
-    price: Int!
-    discountInPercent: Int
-    description: String
-    dealType: String!
-    image: String!
-    rating: String
+    paid: String
+    description: String!
+    image: String
+    video: String
+    category: String!
+    author: Author
   }
 
-  extend input Product {
-    _empty: String
+  type Author {
+    _id: ID!
+    name: String
+    emails: String
+    twitter: String
+    ranking: String
+    profileImageUrl: String
   }
 `;
 
-export default favouritesTypeDef;
+export default newsTypeDefs;

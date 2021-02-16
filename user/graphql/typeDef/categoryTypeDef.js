@@ -11,6 +11,22 @@
 
 import { gql } from "apollo-server-express";
 
-const orderTypeDef = gql``;
+const categoryTypeDef = gql`
+  extend type Query {
+    categories: Response
+  }
 
-export default orderTypeDef;
+  extend type Response {
+    categories: [Category]
+  }
+
+  extend type Category {
+    _id: ID!
+    title: String!
+    slug: String
+    type: String
+    icon: String
+  }
+`;
+
+export default categoryTypeDef;

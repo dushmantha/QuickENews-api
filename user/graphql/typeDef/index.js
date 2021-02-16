@@ -11,8 +11,8 @@
 
 import rootTypeDef from "./rootTypeDef";
 import userTypeDef from "./userTypeDef";
-import favouritesTypeDef from "./favouritesTypeDef";
-import productTypeDefs from "./productTypeDefs";
+// import bookmarkTypeDef from "./bookmarkTypeDef";
+// import newsTypeDefs from "./newsTypeDefs";
 // import cartTypeDef from "./cartTypeDef";
 // import categoryTypeDef from "./categoryTypeDef";
 // import orderTypeDef from "./orderTypeDef";
@@ -21,8 +21,8 @@ import productTypeDefs from "./productTypeDefs";
 export {
   rootTypeDef,
   userTypeDef,
-  favouritesTypeDef,
-  productTypeDefs,
+  // bookmarkTypeDef,
+  // newsTypeDefs,
   // cartTypeDef,
   // categoryTypeDef,
   // orderTypeDef,

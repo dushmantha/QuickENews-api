@@ -12,7 +12,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-export const productSchema = new Schema({
+export const newsSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -23,50 +23,53 @@ export const productSchema = new Schema({
     required: false,
   },
 
-  unit: {
-    type: String,
+  author: {
+    name: {
+      type: String,
+      required: false,
+    },
+    profileImageUrl: {
+      type: String,
+      required: false,
+    },
+    emails: {
+      type: String,
+      required: false,
+    },
+    twitter: {
+      type: String,
+      required: false,
+    },
+    ranking: {
+      type: String,
+      required: false,
+    },
     required: true,
   },
 
-  price: {
-    type: Number,
+  paid: {
+    type: Boolean,
     required: true,
-  },
-
-  discountInPercent: {
-    type: Number,
-    required: false,
   },
 
   description: {
     type: String,
     required: false,
   },
-
-  dealType: {
-    type: String,
-    required: true,
-  },
-
   image: {
     type: String,
     required: true,
   },
 
-  rating: {
+  video: {
+    type: Object,
+    required: false,
+  },
+
+  category: {
     type: String,
-    required: false,
-  },
-
-  gallery: {
-    type: Object,
-    required: false,
-  },
-
-  categories: {
-    type: Object,
     required: false,
   },
 });
 
-export const Product = mongoose.model("Product", productSchema);
+export const News = mongoose.model("News", newsSchema);

@@ -11,28 +11,34 @@
 
 import { gql } from "apollo-server-express";
 
-const productTypeDefs = gql`
+const bookmarkTypeDef = gql`
   extend type Query {
-    products: Response
-    product(productId: ID): Response
+    bookmark(userId: ID!): [News]
+  }
+
+  extend type Mutation {
+    AddBookmarkInput(userId: ID!, news: News): Response
   }
 
   extend type Response {
-    product: [Aa]
+    message: String
   }
 
-  type Aa {
+  extend type News {
     _id: ID!
     title: String!
     slug: String
-    unit: String!
-    price: Int!
-    discountInPercent: Int
-    description: String
-    dealType: String!
-    image: String!
-    rating: String
+    paid: String
+    description: String!
+    image: String
+    video: String
+    category: String!
+    author: Author
+  }
+
+  extend input News {
+    _empty: String
   }
 `;
 
-export default productTypeDefs;
+export default bookmarkTypeDef;
