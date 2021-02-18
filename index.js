@@ -39,17 +39,17 @@ const startServer = async () => {
   server.applyMiddleware({ app });
 
   mongoose
-    // .connect("mongodb://localhost:27017/quickenews", {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true,
-    // })
-    .connect(
-      "mongodb+srv://admin:0p3nIos123@#@cluster0.1rdcb.mongodb.net/quickenews?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    )
+    .connect("mongodb://localhost:27017/quickenews", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    // .connect(
+    //   "mongodb+srv://admin:0p3nIos123@#@cluster0.1rdcb.mongodb.net/quickenews?retryWrites=true&w=majority",
+    //   {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true,
+    //   }
+    // )
     .then(() => {
       // cron.schedule("0 */6 * * *", () => {
       //   getNews();

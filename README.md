@@ -6,53 +6,33 @@
 
 ## End point function for 
 - Create user
-- Login user
 
 ### Mutation 
 ```
 mutation {
   createUser(
-    name: "tharjaa",
-    email: "test@gmail.com",
-    password: "dssssdfdd"
+    name: "tharjaa"
+    email: "tdmihirand@gmail.com"
+    password: "dssssdfdaaqd"
   ) {
-    _id
-    name
-    email
+    succeed
+    accessToken
   }
 }
-```
- 
- ### result : 
-```
-{
-  "data": {
-    "createUser": {
-      "_id": "5ec62799751c5564c7966995",
-      "name": "tharjaa",
-      "email": "ddfdssdfqaaa@sds0.com"
-    }
-  }
-}
+
 ```
 
 ### query
 ```
 {
-  login(email:"ddfdssdfqaa@sds0.com",password:"dssssdfdd"){
-    token
-    userId
-  }
-}
-```
-
-### result :
-```
-{
-  "data": {
-    "login": {
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWM1ZjMzNGYzOTdkODUyNjAwMWVkMmYiLCJlbWFpbCI6ImRkZmRzc2RmcWFhQHNkczAuY29tIiwiaWF0IjoxNTkwMDQyNzUxLCJleHAiOjE1OTAwNDYzNTF9.fjnNnCev3loejL6nzTpXOcVxo6vzFFHrUFBAJ4utwhs",
-      "userId": "5ec5f334f397d8526001ed2f"
+  newsList(category:"entertainment") {
+   succeed
+    list{
+      title
+      description
+      url
+      publishedAt
+      authorName
     }
   }
 }
